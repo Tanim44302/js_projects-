@@ -1,93 +1,200 @@
+/** COMMON  CSS STARTS*/
+
+:root{
+    --navColor: white ;
+    --bodyColor: white;
+    --textColor: rgb(15, 4, 4) ;
+
+}
+.darkMode{
+    --navColor: rgb(47, 52, 62) ;
+    --bodyColor: rgb(51, 48, 48);
+    --textColor: rgb(248, 248, 251) ;
+
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-a{
-    text-decoration: none;
-}
-h1,h2,h3,h4,h5,h6,ul,ol,p{
-    margin: 0px ;
-    padding: 0px;
-    
-}
 ul,ol{
     list-style: none;
 }
+a{
+    text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6,ul,p,span,ol{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bodyColor);
+    transition: 0.3s;
+}
+/* COMMON CSS ENDS HERE */
 
 /* nav bar starts*/
 
 nav{
-    background-color: rgb(101, 96, 96);
-    padding: 10px 0px;
+    background-color: var(--navColor);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+    padding: 15px 0;
+    
 }
 
-nav .sidebarBtn{
+nav a{
+    color: var(--textColor);
+    margin: 0 15px;
+}
+
+nav .darkBtn{
     width: 40px;
     height: 40px;
-    background-color: #d6f9c3;
     border: none;
+    overflow: hidden;
+
 }
 
-.sidebar{
+nav .darkBtn span{
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
+    font-size: 20px;
+
+}
+
+nav .sunIcon{
+    background-color: rgb(237, 254, 5);
+    transition: 0.30s;
+}
+
+.darkMode nav .sunIcon{
+    margin-top: -100% ;
+} 
+
+nav .moonIcon{
+    background-color: rgb(14, 2, 2);
+    color: rgb(252, 246, 246);
+
+}
+nav .logo-light{
+    display: none;
+}
+
+.darkMode nav .logo-light{
+    display: block;
+}
+
+.darkMode nav .logo-original{
+    display: none;
+}
+/* nav bar end */
+h1{
+    color: var(--textColor);
+}
+
+
+/* FAQ STARTS*/
+ 
+section{
+    height: 100vh;
+    
+    
+}
+
+.faq{
+    border: 1px solid #aaa;
+    
+
+}
+
+.faqHeader{
+    border-bottom: 1px solid #aaa;
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
+    cursor: pointer;
+    
+}
+.faqHeader h5{
+    font-weight: 600;
+}
+
+.faqContent{
+    padding: 15px;
+}
+
+/* FAQ ENDS*/
+
+
+.gallImage{
+    width: 100%;
+    max-width: 350px;
+    height: 300px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gallImage:hover{
+    filter: brightness(50%);
+}
+
+.popupGallery{
     position: fixed;
     inset: 0;
-    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
     opacity: 0;
     visibility: hidden;
-    transition: 0.3s;
-
-}
-.sidebarCnt{
-    width: 80%;
-    background-color:#fff;
-    height: 100vh;
-    overflow-y: auto;
-    max-width: 350px;
-    padding: 30px 20px;
-    transform: translateX(-100%);
-    position: relative;
-    transition: 0.5s ease;
-}
-.sidebarLogo{
-    width: 200px;
-    text-align: center;
-    margin: auto;
-    
-}
-.sidebarLogo img{
-    width: 100%;
+    transition: 0.3s ease-in;
 }
 
-.sidebarCnt ul{
-    text-align: center;
-    margin-top: 20px;
-}
-
-.sidebarCnt ul a{
-    color: rgb(241, 16, 4);
-    margin-bottom: 10px;
-    display: block;
-
-}
-
-
-.sidebarCnt .cancel{
-    position: absolute;
-    top: 20px;
-    right: 10px;
-    color: rgb(253, 4, 4);
-
-    
-}
-
-.sidebar.active{
+.popupGallery.active{
     opacity: 1;
     visibility: visible;
+}
+
+.popupGallery .popupImage{
+    width: 800px;
 
 }
 
-.sidebar.active .sidebarCnt{
-    transform: translateX(0);
+.cancelBtn{
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    color: white;
+    background-color: black;
+    width: 30px;
+    height:30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+
 }
 
+.popupGallery .leftArrow, .popupGallery .rightArrow{
+       width: 40px;
+      height: 40px;
+      background-color: rgb(9, 2, 2); 
+     color: rgb(250, 245, 245);  
+    text-align: center; 
+     line-height: 40px; 
+     font-size: 30px; 
+    position: absolute;
+    cursor: pointer;
+}
+.popupGallery .leftArrow{ 
+      left: 80px;
+ }
+.popupGallery .rightArrow{
+     right: 80px;
+} 
